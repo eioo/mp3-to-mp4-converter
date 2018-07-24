@@ -46,7 +46,7 @@ Project
         +-- SomeArt.jpg
 ```
 
-3. Run the conversion by typing `python main.py`. Files converted will go to `./mp4` folder.
+3. Run the conversion by running `python main.py`. Files converted will go to `./mp4` folder.
 
 ## License
 
