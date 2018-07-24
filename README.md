@@ -1,4 +1,4 @@
-# Project Title
+# MP3 to MP4 converter
 
 Bulk converts mp3 albums to mp4 files
 
