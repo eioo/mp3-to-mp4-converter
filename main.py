@@ -3,7 +3,7 @@ from mimetypes import MimeTypes
 from os import devnull, getcwd, listdir, makedirs, walk
 from os.path import basename, dirname, exists, isfile, join, splitext
 from pprint import pprint
-from urllib import pathname2url
+from urllib.request import pathname2url
 
 ALLOWED_AUDIO_MIMETYPES = ['audio/mpeg']
 ALLOWED_IMAGE_MIMETYPES = ['image/jpeg', 'image/png']
@@ -46,10 +46,10 @@ def convert_to_mp4(file_path, image_path):
   target_path = join(target_dir, file_name) + '.mp4'
 
   if not exists(target_dir):
-    print 'Directory doesn\'t exist. Creating "%s"' % (target_dir)
+    print(f'Directory doesn\'t exist. Creating "{target_dir}"')
     makedirs(target_dir)
 
-  print 'Processing "%s"' % (file_name)
+  print(f'Converting "{file_name}"')
   
   args = ['ffmpeg', '-loglevel', 'panic', '-y',
           '-loop', '1', '-r', '1',
@@ -67,7 +67,7 @@ def main():
     image_file = get_image_file(d)
 
     if not image_file:
-      print 'Could not find image file for "%s". Continuing...' % (d)
+      print(f'Could not find image file for "{d}". Continuing...')
       continue
 
     mp3_files = get_mp3_files(d)
@@ -75,7 +75,7 @@ def main():
     for mp3_file in mp3_files:
       convert_to_mp4(mp3_file, image_file)
 
-  print 'Absolutely DONE.'
+  print('Absolutely DONE.')
 
 if __name__ == '__main__':
   main()
